@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   const [selectedCard, setSelectedCard] = useState<RankAndSuit>();
   const deck = createDeck();
   const cards = deck.map(({ rank, suit }, i) => (
-    <div key={i} className="w-20">
+    <div key={i} className="w-40">
       <PlayingCard suit={suit} rank={rank} onClick={setSelectedCard} />
     </div>
   ));
