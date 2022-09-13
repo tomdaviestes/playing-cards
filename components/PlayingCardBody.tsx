@@ -55,6 +55,10 @@ function insideCount(n: number) {
 }
 
 function generateSuitChildElements(suit: RankAndSuit["suit"], count: number, blanks: number = 0) {
+  if (count === 0) {
+    return [<Suit key={0} suit="none" />];
+  }
+
   return [...Array(count + blanks).keys()].map((i) => {
     if (blanks === 0 || i % 2 === (blanks <= count ? 0 : 1)) {
       return <Suit key={i} suit={suit} flip={i >= ((count + blanks) / 2)} />
@@ -68,11 +72,7 @@ export default function PlayingCardBody({ suit, rank }: RankAndSuit) {
   const outside = outsideCount(number);
   const inside = insideCount(number);
   const outsideChildren = generateSuitChildElements(suit, outside);
-  const insideChildren = inside > 0 ? generateSuitChildElements(suit, inside, Math.max((outside - 1) - inside, 0)) : [];
-
-  if (number === 6) {
-    console.log({ number, outside, inside });
-  }
+  const insideChildren = generateSuitChildElements(suit, inside, Math.max((outside - 1) - inside, 0));
 
   return (
     <>
