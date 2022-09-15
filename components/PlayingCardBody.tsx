@@ -77,9 +77,7 @@ export default function PlayingCardBody({ suit, rank }: RankAndSuit) {
   return (
     <>
     { courtCardImage.get(suit)?.get(rank) && (
-      <div className="flex flex-row justify-evenly absolute top-[3%] left-0">
-        <Image src={courtCardImage.get(suit)?.get(rank)} alt={`${rank} of ${suit}`} />
-      </div>
+      <Image src={courtCardImage.get(suit)?.get(rank)} alt={`${rank} of ${suit}`} layout="responsive" objectFit="cover" />
     )}
     { number < 11 && (
       <div className="flex flex-row justify-evenly w-full h-full p-[20%]">

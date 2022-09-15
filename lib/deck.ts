@@ -1,7 +1,7 @@
 import { Rank, Suit, Deck } from "./types";
 
-const suits: Suit[] = ["hearts", "diamonds", "clubs", "spades"];
-const ranks: Rank[] = ["ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"];
+export const suits: readonly Suit[] = Object.freeze(["hearts", "diamonds", "clubs", "spades"]);
+export const ranks: readonly Rank[] = Object.freeze(["ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"]);
 
 export function createDeck() {
   const deck: Deck = [];
